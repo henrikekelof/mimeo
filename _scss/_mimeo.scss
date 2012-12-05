@@ -1,0 +1,145 @@
+
+#bpm {
+    min-height: 1px;
+    font-family: legacy;
+    -webkit-transition: min-height 0.01ms;
+    -moz-transition: min-height 0.01ms;
+    -o-transition: min-height 0.01ms;
+    transition: min-height 0.01ms;
+}
+@media (min-width: 20em) {
+    #bpm {
+        min-height: 2px;
+        font-family: mobile;
+    }
+}
+@media (min-width: 30em) {
+    #bpm {
+        min-height: 3px;
+        font-family: wide-mobile;
+    }
+}
+@media (min-width: 48em) {
+    #bpm {
+        min-height: 4px;
+        font-family: tablet;
+    }
+}
+@media (min-width: 64em) {
+    #bpm {
+        min-height: 5px;
+        font-family: desktop;
+    }
+}
+
+body {
+    font: 18px/1.4 Helvetica;
+}
+h1, h2, h3 {
+    font-family: 'Life Savers', cursive;
+    /*font-family: 'Gochi Hand', cursive;*/
+    font-weight: normal;
+    font-size: 4em;
+}
+
+#banner{
+    height: 149px;
+    width: 149px;
+    overflow:hidden;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#banner a{
+
+    display: block;
+    width: 190px;
+    font-size: 14px;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT",
+    "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma,
+    Geneva, "Helvetica Neue", Helvetica, Arial, sans serif;
+    background-color: #333;
+    color: #FFF;
+    word-spacing: 2px;
+    text-decoration: none;
+    padding: 5px 15px 5px 25px;
+
+    position:relative;
+    left: 20px;
+    top: -37px;
+    text-align: center;
+
+    -moz-transform-origin: 0 0 ;
+    -moz-transform:rotate(45deg);
+    -moz-box-shadow: 1px 1px 5px 1px #666;
+
+    -webkit-transform-origin: 0 0 ;
+    -webkit-transform:rotate(45deg);
+    -webkit-box-shadow: 1px 1px 5px 1px #666;
+
+    -ms-transform-origin: 0 0 ;
+    -ms-transform:rotate(45deg);
+    -ms-box-shadow: 1px 1px 5px 1px #666;
+
+    transform-origin: 0 0 ;
+    transform:rotate(45deg);
+    box-shadow: 1px 1px 5px 1px #666;
+
+    background-image: linear-gradient(bottom, #000000 3%, #666666 5%, #000000 7%, #000000 93%, #666666 95%, #000000 97%);
+    background-image: -o-linear-gradient(bottom, #000000 3%, #666666 5%, #000000 7%, #000000 93%, #666666 95%, #000000 97%);
+    background-image: -moz-linear-gradient(bottom, #000000 3%, #666666 5%, #000000 7%, #000000 93%, #666666 95%, #000000 97%);
+    background-image: -webkit-linear-gradient(bottom, #000000 3%, #666666 5%, #000000 7%, #000000 93%, #666666 95%, #000000 97%);
+    background-image: -ms-linear-gradient(bottom, #000000 3%, #666666 5%, #000000 7%, #000000 93%, #666666 95%, #000000 97%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.03, #000000),
+        color-stop(0.05, #666666),
+        color-stop(0.07, #000000),
+        color-stop(0.93, #000000),
+        color-stop(0.95, #666666),
+        color-stop(0.97, #000000)
+    );
+
+}
+
+
+/* desert scheme ported from vim to google prettify */
+pre { display: block; background-color: #333; color: #fff; }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string  - pink */
+pre .kwd { color: #f0e68c; font-weight: bold }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type    - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff }    /* punctuation */
+pre .pln { color: #fff }    /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+    pre { background-color: none }
+    pre .str, code .str { color: #060 }
+    pre .kwd, code .kwd { color: #006; font-weight: bold }
+    pre .com, code .com { color: #600; font-style: italic }
+    pre .typ, code .typ { color: #404; font-weight: bold }
+    pre .lit, code .lit { color: #044 }
+    pre .pun, code .pun { color: #440 }
+    pre .pln, code .pln { color: #000 }
+    pre .tag, code .tag { color: #006; font-weight: bold }
+    pre .atn, code .atn { color: #404 }
+    pre .atv, code .atv { color: #060 }
+}
