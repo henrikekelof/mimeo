@@ -1,0 +1,27 @@
+
+# http://documentcloud.github.com/jammit/
+
+javascript_compressor: yui
+gzip_assets: off
+
+js_path: "/js"
+css_path: "/css"
+deploy_path: "/mimeo"
+
+javascripts:
+  main.min:
+    - js/site.js
+
+#  head.min:
+#    - js/lib/modernizr-2.5.3-custom.js
+#    - js/head.js
+#  head-ie.min:
+#    - js/lib/html5.js
+#    - js/lib/modernizr-2.5.3-custom.js
+#    - js/head.js
+#  main.min:
+#    - js/lib/jquery-1.7.2.min.js
+#    - js/lib/LAB.min.js
+#    - js/main.js
+
+# CSS is merged & compressed by SASS

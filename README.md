@@ -1,4 +1,0 @@
-mimeo
-=====
-
-mimeo

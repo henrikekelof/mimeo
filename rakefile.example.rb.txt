@@ -1,0 +1,71 @@
+
+require "rubygems"
+require "compass"
+require "listen"
+require "jammit"
+require "jekyll"
+
+## -- Rsync Deploy config -- ##
+# Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
+ssh_user = "username@domain.com"
+ssh_port = "22"
+document_root = "~/htdocs/site/"
+rsync_delete = true
+
+
+## -- Local folder to deploy -- ##
+source_dir = "." # source directory
+public_dir = "_site/mimeo" # compiled site directory
+scss_dir = "_scss" # scss directory
+css_dir = "css" # scss directory
+js_dir = "js" # scss directory
+
+url_local = "http://localhost/mimeo/"
+url_public = "http://domain.com/mimeo/"
+
+#######################
+# Working with Jekyll #
+#######################
+
+desc "Watch the site and regenerate when it changes"
+task :watch do
+  raise "### Can't find source dir." unless File.directory?(source_dir)
+  puts "Starting to watch source with Jekyll and Compass."
+
+  system "jekyll --auto --url #{url_local}"
+
+  child_pid = fork do
+    system "compass watch"
+  end
+
+end
+
+desc "Deploy website via rsync"
+task :deploy do
+  puts "## Compressing javascripts"
+  system "jammit -o #{js_dir} -c _assets.yml"
+  exclude = ""
+  if File.exists?('./rsync-exclude')
+    exclude = "--exclude-from '#{File.expand_path('./rsync-exclude')}'"
+  end
+  system "jekyll --no-auto --url #{url_public}"
+  puts "## Deploying website via Rsync"
+  ok_failed system("rsync -avze 'ssh -p #{ssh_port}' #{exclude} #{"--delete" unless rsync_delete == false} -I -W #{public_dir}/ #{ssh_user}:#{document_root}")
+  #ok_failed system("rsync -avz #{exclude} #{"--delete" unless rsync_delete == false} #{public_dir}/ #{ssh_user}:#{document_root}")
+  system "jekyll --no-auto --url #{url_local}"
+end
+
+
+def ok_failed(condition)
+  if (condition)
+    puts "OK"
+  else
+    puts "FAILED"
+  end
+end
+
+desc "list tasks"
+task :list do
+  puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
+  puts "(type rake -T for more detail)\n\n"
+end

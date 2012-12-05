@@ -1,0 +1,10 @@
+
+permalink:   none
+exclude: ['rakefile.rb', 'rakefile.example.rb.txt', 'config.rb', 'ReadMe.markdown']
+source: .
+destination: _site/mimeo
+
+mimeo:
+  site_root: "/mimeo/"
+
+

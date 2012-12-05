@@ -1,1 +1,11 @@
 _site/
+
+*.iws
+workspace.xml
+tasks.xml
+
+.DS_Store
+
+rakefile.rb
+
+.sass-cache
