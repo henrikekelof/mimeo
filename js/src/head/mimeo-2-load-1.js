@@ -1,6 +1,6 @@
 
 window.M = (function () {
-
+ 
 	'use strict';
 
 	var modulesIncluded = { },

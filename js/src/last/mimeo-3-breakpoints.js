@@ -1,4 +1,4 @@
-
+/*global _, Modernizr, B */
 //
 //(function (doc) {
 //
@@ -32,11 +32,11 @@
 	function getCss(elm, prop) {
 		//http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
 		var val = '';
-		if(doc.defaultView && doc.defaultView.getComputedStyle){
-			val = doc.defaultView.getComputedStyle(elm, "").getPropertyValue(prop);
+		if (doc.defaultView && doc.defaultView.getComputedStyle) {
+			val = doc.defaultView.getComputedStyle(elm, '').getPropertyValue(prop);
 		}
-		else if(elm.currentStyle){
-			prop = prop.replace(/\-(\w)/g, function (strMatch, p){
+		else if (elm.currentStyle) {
+			prop = prop.replace(/\-(\w)/g, function (strMatch, p) {
 				return p.toUpperCase();
 			});
 			val = elm.currentStyle[prop];
@@ -188,10 +188,12 @@ document.getElementById('bp').innerHTML = '' + B.current + ' ' + B.narrowerThan(
 
 if (window.addEventListener) {
 
-	window.addEventListener('breakpointchange', function(e) {
+	window.addEventListener('breakpointchange', function () {
 
+		'use strict';
 		//console.log('Event triggered');
-		document.getElementById('bp').innerHTML = B.current + ' ' + B.narrowerThan('tablet');
+		document.getElementById('bp').innerHTML = B.current +
+			' ' + B.narrowerThan('tablet');
 
 		B('wide-mobile')
 			.wider(function () { console.log('Is wider than wide-mobile'); })

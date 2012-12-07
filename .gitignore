@@ -9,3 +9,7 @@ tasks.xml
 rakefile.rb
 
 .sass-cache
+
+*.sublime-project
+
+*.sublime-workspace

@@ -1,3 +1,5 @@
+/*jshint onevar:true, white: true */
+/*global _, yepnope, M */
 
 // Adding custom JavaScript and CSS modules to be lazy loaded once
 // no matter how many times they're added.
@@ -13,7 +15,7 @@
 		addScript,
 		addScripts;
 
-	console.log(M);
+	//console.log(M);
 
 	addScript = function (file) {
 		var s = doc.createElement('script');
@@ -35,7 +37,7 @@
 		var module = allModules[key];
 
 		if (module === undefined || !_.has(allModules, key)) {
-			console.error('JS-module not loaded. Module ' + key + ' does not exist.', 'error');
+			//console.error('JS-module not loaded. Module ' + key + ' does not exist.', 'error');
 			return;
 		}
 

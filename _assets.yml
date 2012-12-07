@@ -7,10 +7,12 @@ compress_assets: on
 
 javascripts:
   mimeo-head.min:
+    - js/src/lib/modernizr.prefixed.js
     - js/src/head/mimeo-1-understreck.js
     - js/src/head/mimeo-2-load-1.js
   mimeo-last.min:
     - js/src/last/mimeo-3-breakpoints.js
+    - js/src/lib/yepnope.js
     - js/src/last/mimeo-4-load-2-config.js
     - js/src/last/mimeo-5-load-3.js
 

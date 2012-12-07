@@ -1,4 +1,4 @@
-
+/*global _ */
 
 (function (win, undefined) {
 
@@ -40,7 +40,9 @@
 		} else {
 			for (key in obj) {
 				if (has(obj, key)) {
-					if (iterator.call(context, obj[key], key, obj) === breaker) {
+					if (iterator.call(
+							context, obj[key], key, obj
+						) === breaker) {
 						return;
 					}
 				}
@@ -62,12 +64,12 @@
 			lastCalled = 0;
 
 		function trailingCall() {
-			lastCalled = new Date;
+			lastCalled = new Date();
 			timeoutId = null;
 			result = func.apply(thisArg, args);
 		}
-		return function() {
-			var now = new Date,
+		return function () {
+			var now = new Date(),
 				remaining = wait - (now - lastCalled);
 
 			args = arguments;
