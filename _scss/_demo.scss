@@ -1,12 +1,15 @@
 
-#mimeo-detect-breakpoint {
-    min-height: 1px;
-    font-family: S; 
-    @include transition(min-height 0.01ms);
-    @include media-medium { min-height: 2px; font-family: M; };
-    @include media-large { min-height: 3px; font-family: L; };
-    @include media-xlarge { min-height: 4px; font-family: XL; };
+body {
+    font: 18px/1.4 Helvetica;
 }
+h1, h2, h3 {
+    //font-family: 'Life Savers', cursive;
+    /*font-family: 'Gochi Hand', cursive;*/
+    font-weight: normal;
+    font-size: 4em;
+    clear: both;
+}
+
 
 .label {
     border: 1px solid #000;
@@ -23,16 +26,23 @@
     }
 }
 
-body {
-    font: 18px/1.4 Helvetica;
+.log {
+    float: left;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li {
+        padding: .25em;
+        border-bottom: 1px solid #CCC;
+    }
 }
-h1, h2, h3 {
-    //font-family: 'Life Savers', cursive;
-    /*font-family: 'Gochi Hand', cursive;*/
-    font-weight: normal;
-    font-size: 4em;
+
+div[role=contentinfo] {
     clear: both;
 }
+
 
 #banner{
     height: 149px;

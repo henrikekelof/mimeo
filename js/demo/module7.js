@@ -1,2 +1,1 @@
-
-document.getElementById('m7').innerHTML = 'Module 7 loaded!';
+demo.log('Module 7 loaded!');

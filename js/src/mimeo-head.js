@@ -7,8 +7,7 @@ var _m;
     'use strict';
     
     var Mimeo, mimeo,
-		current, instances = {},
-		timeout;
+		current, instances = {};
 
 
 	function hasKey(query) {

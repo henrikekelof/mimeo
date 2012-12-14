@@ -25,6 +25,17 @@
   }
 }
 
+body {
+  font: 18px/1.4 Helvetica;
+}
+
+h1, h2, h3 {
+  /*font-family: 'Gochi Hand', cursive;*/
+  font-weight: normal;
+  font-size: 4em;
+  clear: both;
+}
+
 .label {
   border: 1px solid #000;
   text-align: center;
@@ -39,14 +50,20 @@
   color: #FFF;
 }
 
-body {
-  font: 18px/1.4 Helvetica;
+.log {
+  float: left;
+}
+.log ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.log li {
+  padding: .25em;
+  border-bottom: 1px solid #CCC;
 }
 
-h1, h2, h3 {
-  /*font-family: 'Gochi Hand', cursive;*/
-  font-weight: normal;
-  font-size: 4em;
+div[role=contentinfo] {
   clear: both;
 }
 

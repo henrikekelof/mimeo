@@ -11,7 +11,6 @@ javascripts:
     - js/src/head/mimeo-understreck.js
     - js/src/head/mimeo-load.js
   mimeo-last.min:
-    
     - js/src/lib/yepnope.js
     - js/src/last/mimeo-breakpoints-config.js
     - js/src/last/mimeo-breakpoints.js
