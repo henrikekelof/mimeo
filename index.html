@@ -1,116 +1,58 @@
 <!DOCTYPE html>
-<html>
+<!--[if lte IE 8]> <html class="no-js ie8" lang="sv"> <![endif]-->
+<!--[if gte IE 9 ]><html class="no-js ie9" lang="sv"><![endif]-->
+<!--[if !IE]><!--><html class="no-js no-ie" lang="sv"><!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="format-detection" content="telephone=no">
-
+    
     <!--[if (gte IE 9)|!(IE)]><!-->
-    <link rel="stylesheet" href="css/bpm-style.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mimeo.css">
     <!--<![endif]-->
 
     <!--[if (lte IE 8)]>
-    <link rel="stylesheet" href="css/bpm-style-ie.css">
-    <link rel="stylesheet" href="css/style-ie.css">
+    <link rel="stylesheet" href="css/mimeo-ie.css">
     <![endif]-->
+    
+    <script src="js/lib/modernizr.prefixed.js"></script>
+    <script src="js/src/mimeo-understreck.js"></script>
+    <script src="js/src/mimeo-head.js"></script>
+    <script src="js/src/mimeo-config.js"></script>
 
-    <link href='http://fonts.googleapis.com/css?family=Life+Savers|Gochi+Hand' rel='stylesheet' type='text/css'>
-
-
-    <script src="js/modernizr.prefixed.js"></script>
-    <script src="js/u.js"></script>
-    <script src="js/m-head.js"></script>
-
-    <title>BPM</title>
-    <meta name="description" content="BPM">
-
+    <title>mimeo</title>
+    
 </head>
 <body>
 
-<div id="bpm"></div>
+<div id="mimeo-detect-breakpoint"></div>
 
-<div id="banner"><a href="#">Forka pa GitHub</a></div>
+<div role="banner">
+    <h1>Mimeo</h1>
+</div>
 
-<img src="Mimeograph_1918.png" width="326">
-    <!--
-        Using WAI ARIA Landmark Roles:
-        http://www.paciellogroup.com/blog/2010/10/using-wai-aria-landmark-roles/
-
-        Schema.org for semantic markup:
-        http://schema.org
-        -->
-
-    <div role="banner">
-
-        <h1>Mimeo</h1>
-        Page header. Site-oriented content typically includes things such as the logo of the site sponsor, the main heading for the page, and site-specific search tool. Typically this appears at the top of the page spanning the full width.
-        Note: Within any document or application, the author SHOULD mark no more than one element with the banner role.
-
-        <div role="search">
-            <form>
-
-            </form>
-
-            The search tool of a web document. This is typically a form used to submit search requests about the site or to a more general Internet search service.
-
-        </div>
-
+<div role="main">
+    
+    <div class="label">
+        <div id="size" class="size">X</div>
+        <div id="width" class="width">X</div>
     </div>
 
-    <div role="navigation">
+    <div class="log" id="log"></div>
 
-        Navigation. A collection of navigational elements (usually links) for navigating the document or related documents.
+    <script> _m.include('mod1'); </script>
+    <script> _m.include('mod3'); </script>
+</div>
 
-    </div>
+<div role="contentinfo">
 
-    <div role="main">
+    &copy; 2012 Henrik Ekelöf
 
-        <h1>BP: <span id="bp"></span></h1>
+</div>
 
-        <div id="modules">
-            <p id="m1"></p>
-            <p id="m2"></p>
-        </div>
-        <script>
-            M.include(['mod1', 'mod2']);
-        </script>
+<script src="js/lib/yepnope.js"></script>
+<script src="js/src/mimeo-last.js"></script>
 
-        Main content. This marks the content that is directly related to or expands upon the central topic of the document. Within any document or application, the author SHOULD mark no more than one element with the main role.
+<script src="js/demo.js"></script>
 
-<pre class="prettyprint lang-html">
-&lt;html&gt;&lt;/html&gt;
-</pre>
-
-        <div role="form">
-            <form>
-                A form.
-            </form>
-        </div>
-
-    </div>
-
-    <div role="complementary">
-
-        Sidebar. The content should be relevant to the main content; if it is completely separable, a more general role should be used instead.
-
-    </div>
-
-    <div role="contentinfo">
-
-        Page footer. Metadata that applies to the parent document.For example, footnotes, copyrights, and links to privacy statements would belong here.Note: Within any document or application, the author SHOULD mark no more than one element with the contentinfo role.
-
-    </div>
-
-<script src="js/prettify/prettify.js"></script>
-<script src="js/prettify/lang-css.js"></script>
-<script src="js/yepnope.js"></script>
-<script src="js/b.js"></script>
-<script src="js/m-config.js"></script>
-<script src="js/m-last.js"></script>
-
-<script>
-    prettyPrint();
-</script>
 </body>
 </html>

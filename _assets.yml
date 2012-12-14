@@ -3,18 +3,20 @@
 
 javascript_compressor: yui
 gzip_assets: off
-compress_assets: on
+compress_assets: off
 
 javascripts:
   mimeo-head.min:
     - js/src/lib/modernizr.prefixed.js
-    - js/src/head/mimeo-1-understreck.js
-    - js/src/head/mimeo-2-load-1.js
+    - js/src/head/mimeo-understreck.js
+    - js/src/head/mimeo-load.js
   mimeo-last.min:
-    - js/src/last/mimeo-3-breakpoints.js
+    
     - js/src/lib/yepnope.js
-    - js/src/last/mimeo-4-load-2-config.js
-    - js/src/last/mimeo-5-load-3.js
+    - js/src/last/mimeo-breakpoints-config.js
+    - js/src/last/mimeo-breakpoints.js
+    - js/src/last/mimeo-load-config.js
+    - js/src/last/mimeo-load.js
 
 # Use spaces - not tabs!
 

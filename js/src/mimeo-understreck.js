@@ -91,6 +91,19 @@
 		return toString.call(obj) === '[object Array]';
 	};
 
+	_.once = function (func) {
+		var ran = false, memo;
+		return function () {
+			if (ran) {
+				return memo;
+			}
+			ran = true;
+			memo = func.apply(this, arguments);
+			func = null;
+			return memo;
+		};
+	};
+
 	_.each = each;
 	_.has = has;
 	_.throttle = throttle;

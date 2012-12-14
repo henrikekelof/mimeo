@@ -1,3 +1,7 @@
-body {
-	color: green;
-}
+
+$IE8: true;
+
+@import "compass";
+@import "mixins";
+
+@import "style";

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Mimeo Loader</title>
+
+  <meta name="description" content="">
+  <meta name="robots" content="noindex,nofollow">
+  
+  <script>
+  	var MODL = { version: '1.0', root: '' };
+  </script>
+  <script src="../src/modl.js"></script>
+  
+</head>
+
+<body>
+
+  
+  <h1>Content here</h1>
+  
+	<p id="m1"></p>
+	<p id="m2"></p>
+	<p id="m3"></p>
+	<p id="m4"></p>
+	<p id="m5"></p>
+	<p id="m6"></p>
+	<p id="m7"></p>
+	<p id="m8"></p>
+	<p id="m9"></p>
+  
+  <script>
+  	MODL.add('module1');
+  	MODL.add('module2');
+  	  	MODL.add(['module3', 'module4', 'module5', 'module6', 'module7', 'module8', 'module9']);
+  </script>
+  
+  <script>
+	  MODL.load();
+  </script>
+  
+</body>
+</html>

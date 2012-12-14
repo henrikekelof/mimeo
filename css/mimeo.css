@@ -1,45 +1,53 @@
-#bpm {
+#mimeo-detect-breakpoint {
   min-height: 1px;
-  font-family: legacy;
+  font-family: S;
   -webkit-transition: min-height 0.01ms;
   -moz-transition: min-height 0.01ms;
   -o-transition: min-height 0.01ms;
   transition: min-height 0.01ms;
 }
-
-@media (min-width: 20em) {
-  #bpm {
+@media (min-width: 22.72727em) {
+  #mimeo-detect-breakpoint {
     min-height: 2px;
-    font-family: mobile;
+    font-family: M;
   }
 }
-@media (min-width: 30em) {
-  #bpm {
+@media (min-width: 30.90909em) {
+  #mimeo-detect-breakpoint {
     min-height: 3px;
-    font-family: wide-mobile;
+    font-family: L;
   }
 }
-@media (min-width: 48em) {
-  #bpm {
+@media (min-width: 34.90909em) {
+  #mimeo-detect-breakpoint {
     min-height: 4px;
-    font-family: tablet;
+    font-family: XL;
   }
 }
-@media (min-width: 64em) {
-  #bpm {
-    min-height: 5px;
-    font-family: desktop;
-  }
+
+.label {
+  border: 1px solid #000;
+  text-align: center;
+  float: left;
+  width: 18em;
 }
+.label .size {
+  font-size: 6em;
+}
+.label .width {
+  background-color: #000;
+  color: #FFF;
+}
+
 body {
   font: 18px/1.4 Helvetica;
 }
 
 h1, h2, h3 {
-  font-family: 'Life Savers', cursive;
   /*font-family: 'Gochi Hand', cursive;*/
   font-weight: normal;
   font-size: 4em;
+  clear: both;
 }
 
 #banner {
