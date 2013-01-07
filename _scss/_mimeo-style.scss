@@ -1,0 +1,18 @@
+// Mimeo v1.0 | Henrik Ekelöf - @henrikekelof | https://github.com/henrikekelof/mimeo
+
+//----- Edit breakpoints list here AND in mimeo-config.js : -----//
+
+#mimeo-detect-breakpoint {
+	position: absolute;
+	top: -99999px;
+	left: -99999px;
+    min-height: 1px;
+    font-family: mobile; 
+    @include transition(min-height 0.01ms);
+    @include media-wide-mobile { min-height: 2px; font-family: wide-mobile; };
+    @include media-narrow-tablet { min-height: 3px; font-family: narrow-tablet; };
+    @include media-tablet { min-height: 4px; font-family: tablet; };
+    @include media-desktop { min-height: 5px; font-family: desktop; };
+}
+
+

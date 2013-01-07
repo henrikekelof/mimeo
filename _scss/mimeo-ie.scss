@@ -1,9 +1,7 @@
+// Mimeo v1.0 | Henrik Ekelöf - @henrikekelof | https://github.com/henrikekelof/mimeo
 
 $IE8: true;
 
 @import "compass";
-@import "mixins";
-
-@import "style";
-
-@import "demo";
+@import "mimeo-mixins";
+@import "mimeo-style";

@@ -1,0 +1,56 @@
+// Mimeo v1.0 | Henrik Ekelöf - @henrikekelof | https://github.com/henrikekelof/mimeo
+
+$WIDE_MOBILE: 480px;
+$NARROW_TABLET: 640px;
+$TABLET: 768px;
+$DESKTOP: 1024px;
+
+@mixin media-wide-mobile {
+    @if not $IE8 {
+        @media (min-width: $WIDE_MOBILE) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin media-narrow-tablet {
+    @if not $IE8 {
+        @media (min-width: $NARROW_TABLET) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin media-tablet {
+    @if not $IE8 {
+        @media (min-width: $TABLET) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin media-desktop {
+    @if not $IE8 {
+        @media (min-width: $DESKTOP) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+
+
+
+
+

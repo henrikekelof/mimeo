@@ -1,3 +1,5 @@
+// Mimeo v1.0 | Henrik Ekelöf - @henrikekelof | https://github.com/henrikekelof/mimeo
+
 /*global _m, _, Modernizr, yepnope */
 
 (function (win, doc) {
@@ -8,7 +10,8 @@
 		transitionEndNames, transitionEndName, previousBreakpoint;
 
 	function getCss(elm, prop) {
-		//http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
+		// From an old blog post by Robert Nyman:
+		// http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
 		var val = '';
 		if (doc.defaultView && doc.defaultView.getComputedStyle) {
 			val = doc.defaultView.getComputedStyle(elm, '').getPropertyValue(prop);
@@ -50,9 +53,17 @@
 	}
 
 	if (transitionEndName !== undefined && doc.body.addEventListener) {
-		doc.body.addEventListener(transitionEndName, watchBreakpoint, false);
+		detector.addEventListener(
+			transitionEndName,
+			watchBreakpoint,
+			false
+		);
 	} else if (win.addEventListener) {
-		win.addEventListener('resize', _.throttle(watchBreakpoint, 500), false);
+		win.addEventListener(
+			'resize',
+			_.throttle(watchBreakpoint, 500),
+			false
+		);
 	}
 
 	setTimeout(watchBreakpoint, 1);
@@ -60,48 +71,17 @@
 }(window, document));
 
 
-
-// Adding custom JavaScript and CSS modules to be lazy loaded once
-// no matter how many times they're added.
-
 (function () {
 
 	'use strict';
 
 	var doc = document,
 		container = doc.createElement('div'),
-		allModules = _m.modules,
 		modulesIncluded = _m.included,
-		addScript,
-		addScripts;
+		modulesLoaded = {},
+		createScript, hasModulesToLoad, addModule, addScript, addScripts;
 
-	if (!window.console) {
-		window.console = {
-			error: function () {}
-		};
-	}
-
-	addScript = function (file) {
-		var s = doc.createElement('script');
-		s.src = file;
-		s.async = true;
-		container.appendChild(s);
-	};
-
-	addScripts = function (files) {
-		_.each(files, addScript);
-	};
-
-	_.each(modulesIncluded, function (num, key) {
-
-		var module = allModules[key];
-
-		if (module === undefined || !_.has(allModules, key)) {
-			window.console.error('JS-module not loaded. Module ' +
-				key + ' does not exist.', 'error');
-			return;
-		}
-
+	addModule = function (module) {
 		if (_.isArray(module)) {
 			addScripts(module);
 		} else if (_.isString(module)) {
@@ -109,10 +89,60 @@
 		} else {
 			yepnope(module);
 		}
+	};
 
-	});
+	createScript = function (file) {
+		var s = doc.createElement('script');
+		s.src = file;
+		s.async = true;
+		return s;
+	};
 
-	doc.body.appendChild(container);
+	addScript = function (file) {
+		var s = createScript(file);
+		container.appendChild(s);
+	};
+
+	addScripts = function (files) {
+		_.each(files, addScript);
+	};
+
+
+	hasModulesToLoad = function (modules, onDemand, forceReload) {
+		
+		var appendContainer = false;
+
+		_.each(modules, function (num, key) {
+
+			key = onDemand ? num : key;
+
+			if (_.has(_m.modules, key) &&
+				(!onDemand || (onDemand && (forceReload || !modulesLoaded[key])))) {
+				addModule(_m.modules[key]);
+				modulesLoaded[key] = true;
+				appendContainer = true;
+			}
+
+		});
+		
+		return appendContainer;
+
+	};
+
+	if (hasModulesToLoad(modulesIncluded)) {
+		doc.body.appendChild(container);
+	}
+
+	_m.load = function (modules, forceReload) {
+		
+		modules = (_.isArray(modules)) ? modules : [modules];
+		
+		if (hasModulesToLoad(modules, true, forceReload)) {
+			container = doc.createElement('div');
+			doc.body.appendChild(container);
+		}
+		
+	};
 
 }());
 

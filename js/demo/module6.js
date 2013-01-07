@@ -1,1 +1,0 @@
-demo.log('Module 6 loaded!');

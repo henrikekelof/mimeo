@@ -1,3 +1,5 @@
+// Mimeo v1.0 | Henrik Ekelöf - @henrikekelof | https://github.com/henrikekelof/mimeo
+
 /*global _ */
 
 var _m;
@@ -8,7 +10,6 @@ var _m;
     
     var Mimeo, mimeo,
 		current, instances = {};
-
 
 	function hasKey(query) {
 		return (query && _.has(_m.breakpoints, query));
@@ -43,7 +44,6 @@ var _m;
 		}
     };
 
-
     Mimeo = function (query) {
 		if (query) {
 			this.query = query;
@@ -51,21 +51,21 @@ var _m;
     };
 
     _m.fn = Mimeo.prototype = {
-		wider: function (fn) {
+		wider: function (fn, args) {
 			if (_.isFunction(fn) && this.query && widerThan(this.query)) {
-				fn();
+				fn(args);
 			}
 			return this;
 		},
-		equal: function (fn) {
+		equal: function (fn, args) {
 			if (_.isFunction(fn) && this.query && equals(this.query)) {
-				fn();
+				fn(args);
 			}
 			return this;
 		},
-		narrower: function (fn) {
+		narrower: function (fn, args) {
 			if (_.isFunction(fn) && this.query && narrowerThan(this.query)) {
-				fn();
+				fn(args);
 			}
 			return this;
 		}
@@ -87,17 +87,9 @@ var _m;
 		}
 	};
 
-	_m.narrower = function (query) {
-		return narrowerThan(query);
-	};
-
-	_m.equals = function (query) {
-		return equals(query);
-	};
-
-	_m.wider = function (query) {
-		return widerThan(query);
-	};
+	_m.narrowerThan = narrowerThan;
+	_m.equals = equals;
+	_m.widerThan = widerThan;
 
     mimeo = new Mimeo();
 

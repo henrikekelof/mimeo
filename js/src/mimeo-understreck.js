@@ -1,16 +1,23 @@
+// Mimeo v1.0 | Henrik Ekelöf - @henrikekelof | https://github.com/henrikekelof/mimeo
+
 /*global _ */
 
 (function (win, undefined) {
 
 	'use strict';
 
-	if (win._) {
-		// Assume lodash/underscore is already loaded. Exit.
-		return;
-	}
+	// If lodash or underscore is already loaded, exit!
+	if (win._) { return; }
 
-	///////  μ lodash  ///////
-
+	// mimeo-understreck.js
+	// Custom tiny package of some functions from lodash by Henrik Ekelöf
+	//
+	// Lo-Dash <http://lodash.com>
+	// (c) 2012 John-David Dalton <http://allyoucanleet.com/>
+	// Based on Underscore.js <http://underscorejs.org>
+	// (c) 2009-2012 Jeremy Ashkenas, DocumentCloud Inc.
+	// Available under MIT license <http://lodash.com/license>
+	
 	window._ = {};
 
 	var arrayProto = Array.prototype,
@@ -109,3 +116,4 @@
 	_.throttle = throttle;
 
 }(window));
+
