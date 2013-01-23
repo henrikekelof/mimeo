@@ -7,7 +7,38 @@
 	'use strict';
 
 	var detector = doc.getElementById('mimeo-detect-breakpoint'),
-		transitionEndNames, transitionEndName, previousBreakpoint;
+		transitionEndName, previousBreakpoint;
+
+	function prefixedTransitionEndName() {
+		
+		var el = document.createElement('div'),
+			style = el.style,
+			transitionNames = [
+				'transition',
+				'msTransition',
+				'OTransition',
+				'MozTransition',
+				'WebkitTransition'
+			],
+			transitionEndNames = {
+				'transition': 'transitionend',
+				'msTransition': 'MsTransitionEnd',
+				'OTransition': 'transitionend',
+				'MozTransition': 'transitionend',
+				'WebkitTransition': 'webkitTransitionEnd'
+			},
+			i, j, transitionName;
+	
+		for (i = 0, j = transitionNames.length; i < j; i += 1) {
+			if (transitionNames[i]  in style) {
+				transitionName = transitionNames[i];
+				break;
+			}
+		}
+		
+		return transitionEndNames[transitionName];
+
+	}
 
 	function getCss(elm, prop) {
 		// From an old blog post by Robert Nyman:
@@ -25,15 +56,7 @@
 		return val;
 	}
 
-	transitionEndNames = {
-		'WebkitTransition': 'webkitTransitionEnd',
-		'MozTransition': 'transitionend',
-		'OTransition': 'transitionend',
-		'msTransition': 'MsTransitionEnd',
-		'transition': 'transitionend'
-	};
-
-	transitionEndName = transitionEndNames[Modernizr.prefixed('transition')];
+	transitionEndName = prefixedTransitionEndName();
 	previousBreakpoint = _m.current();
 	 
 	function watchBreakpoint() {
