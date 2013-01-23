@@ -13,13 +13,6 @@
 		
 		var el = document.createElement('div'),
 			style = el.style,
-			transitionNames = [
-				'transition',
-				'msTransition',
-				'OTransition',
-				'MozTransition',
-				'WebkitTransition'
-			],
 			transitionEndNames = {
 				'transition': 'transitionend',
 				'msTransition': 'MsTransitionEnd',
@@ -27,16 +20,15 @@
 				'MozTransition': 'transitionend',
 				'WebkitTransition': 'webkitTransitionEnd'
 			},
-			i, j, transitionName;
-	
-		for (i = 0, j = transitionNames.length; i < j; i += 1) {
-			if (transitionNames[i]  in style) {
-				transitionName = transitionNames[i];
-				break;
-			}
-		}
+			transitionName;
 		
-		return transitionEndNames[transitionName];
+		_.each(transitionEndNames, function (val, key) {
+			if (!transitionName && key in style) {
+				transitionName = val;
+			}
+		});
+
+		return transitionName;
 
 	}
 
